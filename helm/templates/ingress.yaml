@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: co2-calculator-coppa-ingress
+  namespace: {{ $.Release.Namespace }}
+  annotations:
+    cert-manager.io/cluster-issuer: prod-eecc
+    nginx.ingress.kubernetes.io/proxy-body-size: "100M"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - {{ $.Values.host }}
+    secretName: prod-tls-secret-{{ $.Release.Namespace }}
+  rules:
+    - host: {{ $.Values.host }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ $.Values.app.name }}
+                port:
+                  number: 80
