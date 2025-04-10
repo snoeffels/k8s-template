@@ -13,7 +13,7 @@ helm upgrade --kube-context eecc-prod --create-namespace --namespace $DEPLOYMENT
     --install co2-calculator-coppa ./
 
 echo
-echo "[DONE] co2-calculator-coppa" 
+echo "[DONE] co2-calculator-coppa"
 echo
 
 
