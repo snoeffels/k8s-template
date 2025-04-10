@@ -1,6 +1,6 @@
 apiVersion: v2
-name: skz-co2-calculator
-description: CO2-Calculator
+name: co2-calculator-coppa
+description: co2-calculator-coppa
 
 type: application
 
