@@ -1,0 +1,9 @@
+.git
+.gitignore
+
+helm/
+
+docker/
+.dockerignore
+
+.github/
