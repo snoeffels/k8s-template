@@ -1,0 +1,8 @@
+apiVersion: v2
+name: skz-co2-calculator
+description: CO2-Calculator
+
+type: application
+
+version: 1.0.0
+
