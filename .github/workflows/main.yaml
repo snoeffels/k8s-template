@@ -25,13 +25,12 @@ jobs:
           echo "${{ secrets.VPN_CONFIG }}" > vpn.conf
           sudo openvpn --config vpn.conf --daemon
           sleep 10
-
-      - name: Configure Docker authentication
+      
+      - name: Generate Docker config from base64 string
         run: |
           mkdir -p ~/.docker
-          echo "${{ secrets.DOCKER_REGISTRY_AUTH }}" > ~/.docker/config.json
+          echo "{\"auths\":{\"registry.eecc.info\":{\"auth\":\"${{ secrets.DOCKER_AUTH_STRING }}\"}}}" > ~/.docker/config.json
           chmod 600 ~/.docker/config.json
-          cat ~/.docker/config.json
 
       - name: Build Docker Image
         run: docker build -t $IMAGE_NAME:dev ./docker
