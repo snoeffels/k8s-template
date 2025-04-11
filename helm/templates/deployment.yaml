@@ -24,7 +24,7 @@ spec:
             - containerPort: {{ $.Values.app.port }}
           livenessProbe:
             httpGet:
-              path: /api/actuator/health/liveness
+              path: /index.html
               port: {{ $.Values.app.port }}
             initialDelaySeconds: 15
             periodSeconds: 10
@@ -32,7 +32,7 @@ spec:
             failureThreshold: 5
           readinessProbe:
             httpGet:
-              path: /api/actuator/health/readiness
+              path: /index.html
               port: {{ $.Values.app.port }}
             initialDelaySeconds: 15
             periodSeconds: 10
