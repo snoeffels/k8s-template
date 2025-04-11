@@ -49,13 +49,13 @@ jobs:
           docker push $IMAGE_NAME:$TAG
           docker push $IMAGE_NAME:latest
 
-      # - name: Set up kubeconfig
-      #   run: |
-      #     mkdir -p ~/.kube
-      #     echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
-      #     chmod 600 ~/.kube/config
+      - name: Set up kubeconfig
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+          chmod 600 ~/.kube/config
 
-      # - name: Deploy to Kubernetes
-      #   if: github.ref == 'refs/heads/main'
-      #   run: |
-      #     kubectl --namespace co2-calculator-coppa rollout restart deploy co2-calculator-coppa
+      - name: Deploy to Kubernetes
+        if: github.ref == 'refs/heads/main'
+        run: |
+          kubectl --namespace co2-calculator-coppa rollout restart deploy co2-calculator-coppa
