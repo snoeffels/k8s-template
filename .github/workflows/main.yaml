@@ -33,7 +33,7 @@ jobs:
           chmod 600 ~/.docker/config.json
 
       - name: Build Docker Image
-        run: docker build -t $IMAGE_NAME:dev .
+        run: docker build -t $IMAGE_NAME:dev ./docker
 
       - name: Push dev image (if main branch)
         if: github.ref == 'refs/heads/main'
