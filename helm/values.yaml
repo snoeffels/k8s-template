@@ -4,10 +4,11 @@ app:
   name: co2-calculator-coppa
   tag: dev
   image: registry.eecc.info/eecc/co2-calculator-coppa
+  port: 80
 
 resources:
   requests:
-    memory: "500m"
+    memory: "512Mi"
     cpu: 500m
   limits:
     memory: "1Gi"

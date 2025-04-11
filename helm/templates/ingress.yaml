@@ -22,4 +22,4 @@ spec:
               service:
                 name: {{ $.Values.app.name }}
                 port:
-                  number: 8080
+                  number: {{ $.Values.app.port }}
